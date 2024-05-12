@@ -1,12 +1,15 @@
 #!/bin/python
 import sys
 
-BOOK_PATH="books/frankenstein.txt"
-
 def main():
-    with open(BOOK_PATH) as f:
-        file_contents = f.read()
-        print(file_contents)
+    book_path="books/frankenstein.txt"
+    text=get_book_text(book_path)
+    print(text)
+
+def get_book_text(path):
+    with open(path) as f:
+        return f.read()
+
 
 if __name__ == '__main__':
     sys.exit(main())
