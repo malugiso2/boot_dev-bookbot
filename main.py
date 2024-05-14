@@ -2,19 +2,18 @@
 
 import sys
 
-def main():
-    book_path="books/frankenstein.txt"
-    text=get_book_text(book_path)
 
-    wc=get_word_count(text)
+def main():
+    book_path = "books/frankenstein.txt"
+    text = get_book_text(book_path)
+
+    wc = get_word_count(text)
     print(f"Number of words {wc}")
 
-    letter_occurance=get_letter_occurance(text)
+    letter_occurance = get_char_dict(text)
     print(f"letter dict {letter_occurance}")
     # for key in letter_occurance:
     #     print(f"{key}: {letter_occurance[key]}")
-
-
 
 
 def get_book_text(path):
@@ -27,7 +26,7 @@ def get_word_count(text):
     return len(words)
 
 
-def get_letter_occurance(text):
+def get_char_dict(text):
     result = {}
 
     for c in text.lower():
@@ -39,5 +38,5 @@ def get_letter_occurance(text):
     return result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sys.exit(main())
