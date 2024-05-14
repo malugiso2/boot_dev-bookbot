@@ -8,12 +8,18 @@ def main():
     text = get_book_text(book_path)
 
     wc = get_word_count(text)
-    print(f"Number of words {wc}")
+    char_dict = get_char_dict(text)
+    char_list = get_list_from_dict(char_dict)
+    char_list.sort(reverse=True, key=sort_on)
 
-    letter_occurance = get_char_dict(text)
-    print(f"letter dict {letter_occurance}")
+    print("--- Begin report of books/frankenstein.txt ---")
+    print(f"{wc} words found in the document")
+    print()
+    print(char_list)
     # for key in letter_occurance:
-    #     print(f"{key}: {letter_occurance[key]}")
+    #     print(f"The '{key}' character was found {letter_occurance[key]} times")
+
+    print("--- End report ---")
 
 
 def get_book_text(path):
@@ -36,6 +42,18 @@ def get_char_dict(text):
             result[c] = 1
 
     return result
+
+
+def get_list_from_dict(dict):
+    result = []
+    for key in dict:
+        if key.isalpha():
+            result.append({"name": key, "num": dict[key]})
+    return result
+
+
+def sort_on(dict):
+    return dict["num"]
 
 
 if __name__ == "__main__":
