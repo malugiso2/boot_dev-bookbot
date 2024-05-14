@@ -12,12 +12,16 @@ def main():
     char_list = get_list_from_dict(char_dict)
     char_list.sort(reverse=True, key=sort_on)
 
+    print_report(wc, char_list)
+
+
+def print_report(wc, char_list):
     print("--- Begin report of books/frankenstein.txt ---")
     print(f"{wc} words found in the document")
     print()
-    print(char_list)
-    # for key in letter_occurance:
-    #     print(f"The '{key}' character was found {letter_occurance[key]} times")
+
+    for d in char_list:
+        print(f"The '{d["name"]}' character was found {d["num"]} times")
 
     print("--- End report ---")
 
