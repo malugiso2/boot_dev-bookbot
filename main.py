@@ -56,8 +56,8 @@ def get_list_from_dict(dict):
     return result
 
 
-def sort_on(dict):
-    return dict["num"]
+def sort_on(d):
+    return d["num"]
 
 
 if __name__ == "__main__":
